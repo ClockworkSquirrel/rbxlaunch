@@ -1,3 +1,4 @@
+const path = require("path")
 const RobloxStudio = require("./RobloxStudio")
 const { spawn } = require("child_process")
 
@@ -30,6 +31,9 @@ async function openStudio(options = defaultOptions) {
     const studio = await RobloxStudio.locate()
     const childProcess = spawn(studio.launcher, launcherArgs, {
         windowsVerbatimArguments: true,
+        detached: true,
+        stdio: ["ignore", "ignore", "ignore"],
+        cwd: path.parse(studio.launcher).dir,
     })
 
     return childProcess
