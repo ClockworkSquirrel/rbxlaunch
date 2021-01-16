@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ClockworkSquirrel/roblox-game-launcher.git"
+    "url": "git+https://github.com/ClockworkSquirrel/rbxlaunch.git"
   },
   "keywords": [
     "roblox",
@@ -20,9 +20,9 @@
   "author": "csqrl",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ClockworkSquirrel/roblox-game-launcher/issues"
+    "url": "https://github.com/ClockworkSquirrel/rbxlaunch/issues"
   },
-  "homepage": "https://github.com/ClockworkSquirrel/roblox-game-launcher#readme",
+  "homepage": "https://github.com/ClockworkSquirrel/rbxlaunch#readme",
   "dependencies": {
     "got": "^11.8.1",
     "rbxapp": "0.0.1"
