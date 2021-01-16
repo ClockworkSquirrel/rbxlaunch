@@ -1,9 +1,17 @@
 # rbxlaunch
 > Directly launch Roblox games and Studio sessions from within Node.js applications.
 
-![npm](https://img.shields.io/npm/dt/rbxlaunch)
-![dependent repos (via libraries.io)](https://img.shields.io/librariesio/dependent-repos/npm/rbxlaunch)
-![install size](https://packagephobia.com/badge?p=rbxlaunch)
+[![npm](https://img.shields.io/npm/v/rbxlaunch?color=00a2ff)](https://www.npmjs.com/package/rbxlaunch)
+[![npm](https://img.shields.io/npm/dt/rbxlaunch)](https://www.npmjs.com/package/rbxlaunch)
+[![dependent repos (via libraries.io)](https://img.shields.io/librariesio/dependent-repos/npm/rbxlaunch)](https://libraries.io/npm/rbxlaunch)
+[![install size](https://packagephobia.com/badge?p=rbxlaunch)](https://packagephobia.com/result?p=rbxlaunch)
+
+# Prerequisites
+* [Node.js](https://nodejs.org/en/)
+* A package manager ([npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), etc.)
+* Windows\*
+
+\* Currently `rbxlaunch` is only supported on Windows devices, due to the [`rbxapp`](https://github.com/ClockworkSquirrel/rbxapp) library's limitations.
 
 # Install
 ```
@@ -26,6 +34,8 @@ const rbxlaunch = require("rbxlaunch")
 ```
 
 ### Launching a Game
+A cookie is required to launch games, due to Roblox requiring an authentication ticket to be generated before allowing a player to join the game.
+
 ```js
 const rbxlaunch = require("rbxlaunch")
 
@@ -33,6 +43,7 @@ const rbxlaunch = require("rbxlaunch")
     try {
         await rbxlaunch.game({
             placeId: 4901843753, // place ID for rotopia
+            cookie: "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in", // to authenticate the request
         })
 
         console.info("rotopia launched successfully!")

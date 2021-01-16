@@ -1,6 +1,9 @@
-const path = require("path")
-const RobloxStudio = require("./RobloxStudio")
+const { RobloxStudio } = require("rbxapp")
+
 const { spawn } = require("child_process")
+const path = require("path")
+
+const robloxStudio = new RobloxStudio()
 
 const defaultOptions = {
     placeId: null,
@@ -28,7 +31,7 @@ async function openStudio(options = defaultOptions) {
         }
     }
 
-    const studio = await RobloxStudio.locate()
+    const studio = await robloxStudio.locate(true)
     const childProcess = spawn(studio.launcher, launcherArgs, {
         windowsVerbatimArguments: true,
         detached: true,

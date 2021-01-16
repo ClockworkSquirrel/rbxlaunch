@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "Launch Roblox games and Studio sessions directly from Node.js applications",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "try": "node ./tests/manual.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ClockworkSquirrel/roblox-game-launcher.git"
@@ -23,10 +25,12 @@
   "homepage": "https://github.com/ClockworkSquirrel/roblox-game-launcher#readme",
   "dependencies": {
     "got": "^11.8.1",
-    "open": "^7.3.1",
-    "rage-edit": "^1.2.0"
+    "rbxapp": "0.0.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
+  },
+  "np": {
+    "branch": "default"
   }
 }

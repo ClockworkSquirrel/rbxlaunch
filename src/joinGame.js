@@ -1,9 +1,14 @@
+const { RobloxPlayer } = require("rbxapp")
+
+const { URL, URLSearchParams} = require("url")
+const { spawn } = require("child_process")
+const path = require("path")
+
 const resolveUniverseId = require("./resolveUniverseId")
 const fetchAuthTicket = require("./fetchAuthTicket")
 const buildLaunchUrl = require("./buildLaunchUrl")
 
-const { URL, URLSearchParams} = require("url")
-const open = require("open")
+const robloxPlayer = new RobloxPlayer()
 
 const defaultOptions = {
     placeId: null,
@@ -49,7 +54,15 @@ async function joinGame(options = defaultOptions) {
         placelauncherurl: encodeURIComponent(placeLauncherURL.href),
     })
 
-    return open(launchUrl)
+    const player = await robloxPlayer.locate(true)
+    const childProcess = spawn(player.launcher, [ launchUrl ], {
+        windowsVerbatimArguments: true,
+        detached: true,
+        stdio: ["ignore", "ignore", "ignore"],
+        cwd: path.parse(player.launcher).dir,
+    })
+
+    return childProcess
 }
 
 module.exports = joinGame
