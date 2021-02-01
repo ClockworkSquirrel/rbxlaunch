@@ -5,6 +5,10 @@ async function fetchXsrfToken(cookie) {
         throw new Error(`Invalid or undefined cookie string provided <${cookie}>`)
     }
 
+    if (!cookie.startsWith(".ROBLOSECURITY=")) {
+        cookie = `.ROBLOSECURITY=${cookie}`
+    }
+
     const response = await got("https://auth.roblox.com/v2/logout/", {
         method: "POST",
         headers: {

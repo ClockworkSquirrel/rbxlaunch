@@ -8,6 +8,6 @@ rbxlaunch.game({
     console.info("Launched game successfully!")
 })
 
-rbxlaunch.studio({
-    placeId: 4901843753, // rotopia
-})
+// rbxlaunch.studio({
+//     placeId: 4901843753, // rotopia
+// })

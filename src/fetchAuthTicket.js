@@ -6,6 +6,10 @@ async function fetchAuthTicket(cookie) {
         throw new Error(`Invalid or undefined cookie string provided <${cookie}>`)
     }
 
+    if (!cookie.startsWith(".ROBLOSECURITY=")) {
+        cookie = `.ROBLOSECURITY=${cookie}`
+    }
+
     const xsrf = await fetchXsrfToken(cookie)
     const response = await got("https://auth.roblox.com/v1/authentication-ticket", {
         method: "POST",
