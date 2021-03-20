@@ -64,7 +64,7 @@ Type: `object`
 |-----|------|----------|---------|-------------|
 | cookie | `string` | Yes | `null` | The cookie used to authenticate the user |
 | placeId | `number` | * | `null` | The ID of the place to join |
-| instanceId | `number` | * | `null` | The game instance ID to join |
+| instanceId | `string` | * | `null` | The game instance ID to join |
 | isPrivate | `boolean` | No | `false` | Determines whether instance ID leads to a public or private server
 | userId | `number` | No | `null` | Used to join another user in-game |
 | universeId | `number` | No | `null` | If provided, will be resolved to the root place ID of the universe |
